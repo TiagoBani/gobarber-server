@@ -7,12 +7,21 @@
     "build": "yarn tsc",
     "prestart": "yarn build",
     "start": "node dist/server.js",
-    "dev:server": "tsnd --inspect --transpile-only --ignore node_modules src/server.ts"
+    "predev:server": "yarn typeorm:run",
+    "dev:server": "tsnd --inspect --transpile-only --ignore node_modules src/server.ts",
+    "typeorm": "tsnd ./node_modules/typeorm/cli.js",
+    "typeorm:create": "yarn typeorm migration:create -n",
+    "typeorm:rollback": "yarn typeorm migration:revert",
+    "typeorm:show": "yarn typeorm migration:show",
+    "typeorm:run": "yarn typeorm migration:run"
   },
   "license": "MIT",
   "dependencies": {
     "date-fns": "^2.15.0",
     "express": "^4.17.1",
+    "pg": "^8.3.2",
+    "reflect-metadata": "^0.1.13",
+    "typeorm": "^0.2.25",
     "uuidv4": "^6.2.3"
   },
   "devDependencies": {
