@@ -20,8 +20,8 @@ export default class User {
   @Column()
   password: string;
 
-  @UpdateDateColumn({ name: 'created_at' })
-  createAt: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;

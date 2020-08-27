@@ -24,8 +24,8 @@ export default class Appointment {
   @Column('time with time zone')
   date: Date;
 
-  @CreateDateColumn({ name: 'create_at' })
-  createAt: Date;
+  @CreateDateColumn({ name: 'created_at' })
+  createdAt: Date;
 
   @UpdateDateColumn({ name: 'updated_at' })
   updatedAt: Date;
