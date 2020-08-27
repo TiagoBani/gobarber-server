@@ -40,6 +40,7 @@ export default class AlterProviderFieldToProviderId1598435903698
       new TableColumn({
         name: 'provider',
         type: 'varchar',
+        isNullable: true,
       }),
     );
   }
