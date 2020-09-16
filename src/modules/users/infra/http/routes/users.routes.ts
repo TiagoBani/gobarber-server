@@ -1,10 +1,11 @@
 import { Router } from 'express';
 import multer from 'multer';
 
-import CreateUserService from '../services/CreateUserService';
-import configUpload from '../config/upload';
-import UpdateUserAvatarService from '../services/UpdateUserAvatarService';
-import ensureAuthenticated from '../middlewares/ensureAuthenticated';
+import CreateUserService from '@modules/users/services/CreateUserService';
+import configUpload from '@config/upload';
+import UpdateUserAvatarService from '@modules/users/services/UpdateUserAvatarService';
+import ensureAuthenticated from '@modules/users/infra/http/middlewares/ensureAuthenticated';
+import { container } from 'tsyringe';
 
 const usersRouter = Router();
 const upload = multer(configUpload);
@@ -13,7 +14,8 @@ usersRouter.post('/', async (request, response) => {
   try {
     const { name, email, password } = request.body;
 
-    const user = await CreateUserService.execute({ name, email, password });
+    const createUserService = container.resolve(CreateUserService);
+    const user = await createUserService.execute({ name, email, password });
 
     return response.status(201).json(user);
   } catch (error) {
@@ -28,7 +30,9 @@ usersRouter.patch(
   async (request, response) => {
     const { id } = request.user;
     const { filename } = request.file;
-    const user = await UpdateUserAvatarService.execute({
+
+    const updateUserAvatarService = container.resolve(UpdateUserAvatarService);
+    const user = await updateUserAvatarService.execute({
       user_id: id,
       avatarFileName: filename,
     });

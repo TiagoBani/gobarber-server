@@ -6,10 +6,10 @@
     "prebuild": "yarn install",
     "build": "yarn tsc",
     "prestart": "yarn build",
-    "start": "node dist/server.js",
+    "start": "ts-node src/shared/infra/http/server.js",
     "predev:server": "yarn typeorm:run",
-    "dev:server": "tsnd --inspect --transpile-only --ignore node_modules src/server.ts",
-    "typeorm": "tsnd ./node_modules/typeorm/cli.js",
+    "dev:server": "tsnd -r tsconfig-paths/register --inspect --transpile-only --ignore node_modules src/shared/infra/http/server.ts",
+    "typeorm": "tsnd -r tsconfig-paths/register ./node_modules/typeorm/cli.js",
     "typeorm:create": "yarn typeorm migration:create -n",
     "typeorm:rollback": "yarn typeorm migration:revert",
     "typeorm:show": "yarn typeorm migration:show",
@@ -26,6 +26,7 @@
     "multer": "^1.4.2",
     "pg": "^8.3.2",
     "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.3.0",
     "typeorm": "^0.2.25",
     "uuidv4": "^6.2.3"
   },
@@ -45,6 +46,7 @@
     "eslint-plugin-prettier": "^3.1.4",
     "prettier": "^2.1.0",
     "ts-node-dev": "^1.0.0-pre.60",
+    "tsconfig-paths": "^3.9.0",
     "typescript": "^4.0.2"
   }
 }
