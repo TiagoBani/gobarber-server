@@ -4,15 +4,15 @@
 
 **RF**
 
-- [ ] o usuário deve poder **recuperar sua senha** informando o e-mail.
+- [x] o usuário deve poder **recuperar sua senha** informando o e-mail.
 
-- [ ] o usuário deve **receber um e-mail** com instruções de recuperação de senha.
+- [x] o usuário deve **receber um e-mail** com instruções de recuperação de senha.
 
-- [ ] O usuário deve poder **resetar sua senha**.
+- [x] O usuário deve poder **resetar sua senha**.
 
 **RNF**
 
-- [ ] Utilizar `Mailtrap` para testar envios de e-mail em ambiente de desenvolvimento.
+- [x] Utilizar `EtherealMail` para testar envios de e-mail em ambiente de desenvolvimento.
 
 - [ ] Utilizar `Amazon SES` para envios de e-mail em ambiente de desenvolvimento.
 
@@ -20,7 +20,7 @@
 
 **RN**
 
-- [ ] O link enviado por e-mail para resetar senha, deve **expirar** em 2 horas.
+- [x] O link enviado por e-mail para resetar senha, deve **expirar** em 2 horas.
 
 - [ ] O usuário precisa **confirmar** a nova senha ao resetar a senha.
 
@@ -29,15 +29,15 @@
 
 **RF**
 
-- [ ] O usuário deve pode atualizar seu **nome, email e senha**.
+- [x] O usuário deve pode atualizar seu **nome, email e senha**.
 
 **RN**
 
-- [ ] O usuário não pode alterar seu e-mail para outro **já utilizado por outro usuário**.
+- [x] O usuário não pode alterar seu e-mail para outro **já utilizado por outro usuário**.
 
-- [ ] Para **atualizar** sua senha, o usuário deve **informar sua senha antiga**.
+- [x] Para **atualizar** sua senha, o usuário deve **informar sua senha antiga**.
 
-- [ ] Para **atualizar** sua senha, o uruário deve **confirmar a nova senha**.
+- [ ] Para **atualizar** sua senha, o usuário deve **confirmar a nova senha**.
 
 ### Painel do prestador
 
