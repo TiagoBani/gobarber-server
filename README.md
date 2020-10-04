@@ -80,12 +80,12 @@
 
 **RN**
 
-- [ ] Cada agendamento deve **durar 1 hora** exatamente.
+- [x] Cada agendamento deve **durar 1 hora** exatamente.
 
-- [ ] Os agendamentos deve estar disponíveis **entre 8 hrs e 18 hrs** (Primeiro ás 8 horas, último ás 17 horas).
+- [x] Os agendamentos deve estar disponíveis **entre 8 hrs e 18 hrs** (Primeiro ás 8 horas, último ás 17 horas).
 
-- [ ] O usuário não pode agendar em um **horário já ocupado**.
+- [x] O usuário não pode agendar em um **horário já ocupado**.
 
-- [ ] O usuário não pode agendar em um **horário que já passou**.
+- [x] O usuário não pode agendar em um **horário que já passou**.
 
 - [ ] O usuário não pode agendar **serviços consigo mesmo**.
