@@ -68,9 +68,9 @@
 
 - [x] O usuário deve poder **listar todos** os prestadores de serviço cadastrados.
 
-- [ ] O usuário deve poder **listar os dias** de um mês com pelo menos um horário disponíviel de um prestador.
+- [x] O usuário deve poder **listar os dias** de um mês com pelo menos um horário disponíviel de um prestador.
 
-- [ ] O usuário deve poder **listar horários** disponívies em um dia específico de um prestador.
+- [x] O usuário deve poder **listar horários** disponívies em um dia específico de um prestador.
 
 - [ ] O usuário deve poder realizar um **novo agendamento** com um prestador.
 

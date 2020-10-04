@@ -10,7 +10,7 @@ interface IRequest {
 
 type IResponse = Array<{
   day: number;
-  availability: boolean;
+  available: boolean;
 }>;
 
 @injectable()
@@ -41,7 +41,7 @@ export default class ListProviderMonthAvailabilityService {
         appointment => getDate(appointment.date) === day,
       );
 
-      return { day, availability: appointmentsInDay.length < 10 };
+      return { day, available: appointmentsInDay.length < 10 };
     });
 
     return availability;

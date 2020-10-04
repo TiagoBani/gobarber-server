@@ -1,10 +1,6 @@
-import FakeUsersRepository from '@modules/users/repositories/fakes/FakeUsersRepository';
-
 import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
-import Appointment from '../infra/typeorm/entities/Appointment';
 
-let fakeUsersRepository: FakeUsersRepository;
 let fakeAppointmentsRepository: FakeAppointmentsRepository;
 let listProviderMonthAvailability: ListProviderMonthAvailabilityService;
 
@@ -15,7 +11,7 @@ describe('ListProviderMonthAvailabilityService', () => {
       fakeAppointmentsRepository,
     );
   });
-  it('should be able to list the month month availability provider', async () => {
+  it('should be able to list the month availability provider', async () => {
     const hoursAvailability = Array.from({ length: 10 }, (_, i) => 8 + i);
 
     const promisesAppointments = hoursAvailability.map(hour =>
@@ -40,10 +36,10 @@ describe('ListProviderMonthAvailabilityService', () => {
 
     expect(availability).toEqual(
       expect.arrayContaining([
-        { day: 19, availability: true },
-        { day: 20, availability: false },
-        { day: 21, availability: true },
-        { day: 22, availability: true },
+        { day: 19, available: true },
+        { day: 20, available: false },
+        { day: 21, available: true },
+        { day: 22, available: true },
       ]),
     );
   });
