@@ -14,10 +14,12 @@ import routes from './routes/index';
 
 import '@shared/infra/typeorm';
 import '@shared/container';
+import rateLimiter from './middlewares/rateLimiter';
 
 const PORT = process.env.PORT || 3333;
 const app = express();
 
+app.use(rateLimiter);
 app.use(cors());
 app.use(express.json());
 app.use('/files', express.static(uploadConfig.uploadsFolder));
