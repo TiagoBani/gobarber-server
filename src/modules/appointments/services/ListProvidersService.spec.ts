@@ -40,5 +40,43 @@ describe('ListProvidersService', () => {
     });
 
     expect(providers).toEqual([user1, user2]);
+
+    const providersCached = await listProviders.execute({
+      user_id: loggedUser.id,
+    });
+
+    const appointmentsId = providers.map(item => item.id);
+    const appointmentsCachedId = providersCached.map(item => item.id);
+
+    expect(appointmentsCachedId).toEqual(
+      expect.arrayContaining(appointmentsId),
+    );
+  });
+
+  it('should be able to list the providers cached', async () => {
+    await fakeUsersRepository.create({
+      name: 'John Doe',
+      email: 'johndoe@example.com',
+      password: '123456',
+    });
+
+    const loggedUser = await fakeUsersRepository.create({
+      name: 'John Qua',
+      email: 'johnqua@example.com',
+      password: '123456',
+    });
+
+    const providers = await listProviders.execute({
+      user_id: loggedUser.id,
+    });
+
+    const providersCached = await listProviders.execute({
+      user_id: loggedUser.id,
+    });
+
+    const providersId = providers.map(item => item.id);
+    const providersCachedId = providersCached.map(item => item.id);
+
+    expect(providersCachedId).toEqual(expect.arrayContaining(providersId));
   });
 });

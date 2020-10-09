@@ -14,15 +14,15 @@
 
 - [x] Utilizar `EtherealMail` para testar envios de e-mail em ambiente de desenvolvimento.
 
-- [ ] Utilizar `Amazon SES` para envios de e-mail em ambiente de desenvolvimento.
+- [x] Utilizar `Amazon SES` para envios de e-mail em ambiente de desenvolvimento.
 
-- [ ] O envio de e-mails deve acontecer em **segundo plano** (background job).
+- [x] O envio de e-mails deve acontecer em **segundo plano** (background job).
 
 **RN**
 
 - [x] O link enviado por e-mail para resetar senha, deve **expirar** em 2 horas.
 
-- [ ] O usuário precisa **confirmar** a nova senha ao resetar a senha.
+- [x] O usuário precisa **confirmar** a nova senha ao resetar a senha.
 
 
 ### Atualização do perfil
@@ -37,29 +37,29 @@
 
 - [x] Para **atualizar** sua senha, o usuário deve **informar sua senha antiga**.
 
-- [ ] Para **atualizar** sua senha, o usuário deve **confirmar a nova senha**.
+- [x] Para **atualizar** sua senha, o usuário deve **confirmar a nova senha**.
 
 ### Painel do prestador
 
 **RF**
 
-- [ ] O usuário deve poder **listar seus agendamentos** de um dia específicos.
+- [x] O usuário deve poder **listar seus agendamentos** de um dia específicos.
 
-- [ ] O usuário deve receber uma **notificação** sempre que houver um **novo agendamento**.
+- [x] O usuário deve receber uma **notificação** sempre que houver um **novo agendamento**.
 
-- [ ] O prestador deve poder visualizar as **notificações não lidas**.
+- [x] O prestador deve poder visualizar as **notificações não lidas**.
 
 **RNF**
 
-- [ ] Os agendamentos do prestador no dia devem ser armazenados em cache.
+- [x] Os agendamentos do prestador no dia devem ser armazenados em cache.
 
-- [ ] As notificações do prestador devem ser armazenadas no MongoDB.
+- [x] As notificações do prestador devem ser armazenadas no MongoDB.
 
 - [ ] As notificações do prestador devem ser enviadas em tempo real utilizando `Socket.io`.
 
 **RN**
 
-- [ ] A notificação deve possuir um status de **lida** ou **não-lida** para que o prestador possa controlar.
+- [x] A notificação deve possuir um status de **lida** ou **não-lida** para que o prestador possa controlar.
 
 
 ### Agendamento de serviços
@@ -76,7 +76,7 @@
 
 **RNF**
 
-- [ ] A listagem de prestadores deve ser **armazenada em cache**.
+- [x] A listagem de prestadores deve ser **armazenada em cache**.
 
 **RN**
 

@@ -40,4 +40,37 @@ describe('ListProviderAppointmentsService', () => {
 
     expect(appointments).toEqual([appointment1, appointment2]);
   });
+
+  it('should be able to list the appointments cached on a specific day', async () => {
+    await fakeAppointmentsRepository.create({
+      provider_id: 'provider',
+      user_id: 'user_id',
+      date: new Date(2020, 4, 20, 14),
+    });
+
+    jest
+      .spyOn(Date, 'now')
+      .mockImplementationOnce(() => new Date(2020, 4, 20, 11).getTime());
+
+    const appointments = await listProviderAppointments.execute({
+      provider_id: 'provider',
+      day: 20,
+      month: 5,
+      year: 2020,
+    });
+
+    const appointmentsCached = await listProviderAppointments.execute({
+      provider_id: 'provider',
+      day: 20,
+      month: 5,
+      year: 2020,
+    });
+
+    const appointmentsId = appointments.map(item => item.id);
+    const appointmentsCachedId = appointmentsCached.map(item => item.id);
+
+    expect(appointmentsCachedId).toEqual(
+      expect.arrayContaining(appointmentsId),
+    );
+  });
 });
