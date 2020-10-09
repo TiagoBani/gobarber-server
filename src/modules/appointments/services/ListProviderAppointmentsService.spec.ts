@@ -52,25 +52,25 @@ describe('ListProviderAppointmentsService', () => {
       .spyOn(Date, 'now')
       .mockImplementationOnce(() => new Date(2020, 4, 20, 11).getTime());
 
-    const appointments = await listProviderAppointments.execute({
-      provider_id: 'provider',
-      day: 20,
-      month: 5,
-      year: 2020,
-    });
-
-    const appointmentsCached = await listProviderAppointments.execute({
-      provider_id: 'provider',
-      day: 20,
-      month: 5,
-      year: 2020,
-    });
-
-    const appointmentsId = appointments.map(item => item.id);
-    const appointmentsCachedId = appointmentsCached.map(item => item.id);
-
-    expect(appointmentsCachedId).toEqual(
-      expect.arrayContaining(appointmentsId),
+    const findAllInDayFromProvider = jest.spyOn(
+      fakeAppointmentsRepository,
+      'findAllInDayFromProvider',
     );
+
+    await listProviderAppointments.execute({
+      provider_id: 'provider',
+      day: 20,
+      month: 5,
+      year: 2020,
+    });
+
+    await listProviderAppointments.execute({
+      provider_id: 'provider',
+      day: 20,
+      month: 5,
+      year: 2020,
+    });
+
+    expect(findAllInDayFromProvider).toBeCalledTimes(1);
   });
 });
