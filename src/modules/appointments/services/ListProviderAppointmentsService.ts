@@ -42,9 +42,7 @@ export default class ListProviderAppointmentsService {
         },
       );
 
-      appointments.forEach(appointment =>
-        Object.assign(appointment, { user: classToClass(appointment.user) }),
-      );
+      appointments = classToClass(appointments);
 
       await this.cacheProvider.save(cacheKey, appointments);
     }
