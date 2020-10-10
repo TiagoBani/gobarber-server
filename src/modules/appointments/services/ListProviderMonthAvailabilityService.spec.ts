@@ -1,3 +1,4 @@
+import { addDays, getYear, getMonth, subDays } from 'date-fns';
 import ListProviderMonthAvailabilityService from './ListProviderMonthAvailabilityService';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
@@ -14,34 +15,42 @@ describe('ListProviderMonthAvailabilityService', () => {
   it('should be able to list the month availability provider', async () => {
     const hoursAvailability = Array.from({ length: 10 }, (_, i) => 8 + i);
 
-    const promisesAppointments = hoursAvailability.map(hour =>
-      fakeAppointmentsRepository.create({
+    const today = new Date();
+    const tomorrow = addDays(new Date(), 1);
+    const yesterday = subDays(new Date(), 1);
+
+    const promisesAppointments = hoursAvailability.map(hour => {
+      today.setHours(hour);
+      return fakeAppointmentsRepository.create({
         provider_id: 'user',
         user_id: 'user_id',
-        date: new Date(2020, 4, 20, hour),
-      }),
-    );
+        date: today,
+      });
+    });
 
     await Promise.all(promisesAppointments);
+
+    const date2 = addDays(new Date(), 2);
+    date2.setHours(8);
 
     await fakeAppointmentsRepository.create({
       provider_id: 'user',
       user_id: 'user_id',
-      date: new Date(2020, 4, 21, 8),
+      date: date2,
     });
 
     const availability = await listProviderMonthAvailability.execute({
       provider_id: 'user',
-      month: 5,
-      year: 2020,
+      month: getMonth(today) + 1,
+      year: getYear(today),
     });
 
     expect(availability).toEqual(
       expect.arrayContaining([
-        { day: 19, available: true },
-        { day: 20, available: false },
-        { day: 21, available: true },
-        { day: 22, available: true },
+        { day: yesterday.getDate(), available: false },
+        { day: today.getDate(), available: false },
+        { day: tomorrow.getDate(), available: true },
+        { day: date2.getDate(), available: true },
       ]),
     );
   });
