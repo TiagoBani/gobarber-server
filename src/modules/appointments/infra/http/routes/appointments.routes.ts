@@ -21,10 +21,10 @@ appointmentsRouter.post(
   }),
   appointmentsController.create,
 );
-appointmentsRouter.post(
+appointmentsRouter.get(
   '/me',
   celebrate({
-    [Segments.BODY]: {
+    [Segments.QUERY]: {
       day: Joi.number().required(),
       month: Joi.number().required(),
       year: Joi.number().required(),
