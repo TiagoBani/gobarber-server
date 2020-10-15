@@ -2,6 +2,7 @@ import CreateAppointmentService from '@modules/appointments/services/CreateAppoi
 import AppError from '@shared/errors/AppError';
 import FakeNotificationsRepository from '@modules/notifications/repositories/fakes/FakeNotificationsRepository';
 import FakeCacheProvider from '@shared/container/providers/CacheProvider/fakes/FakeCacheProvider';
+import { addDays } from 'date-fns';
 import FakeAppointmentsRepository from '../repositories/fakes/FakeAppointmentsRepository';
 
 let fakeNotificationsRepository: FakeNotificationsRepository;
@@ -37,7 +38,7 @@ describe('CreateAppointment', () => {
   });
 
   it('should not be able to create two appointment on the same time', async () => {
-    const appointmentDate = new Date();
+    const appointmentDate = addDays(new Date(), 1);
     appointmentDate.setHours(11);
 
     await createAppointmentService.execute({
