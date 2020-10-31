@@ -2,6 +2,7 @@ sonar-project.properties
 .scannerwork
 db
 
+dist
 .vscode
 tmp/*
 !tmp/.gitkeep
