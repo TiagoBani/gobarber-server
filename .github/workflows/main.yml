@@ -34,7 +34,7 @@ jobs:
 
   CD:
     runs-on: ubuntu-latest
-
+    needs: CI
     steps:
       - name: Run production scripts on Digital Ocean
         uses: appleboy/ssh-action@master
