@@ -1,4 +1,5 @@
 # gotack-node
+![CI](https://github.com/TiagoBani/gobarber-server/workflows/CI/badge.svg?branch=master)
 
 ### Recuperação de senha
 
