@@ -1,4 +1,4 @@
-name: CI
+name: CI/CD
 
 on:
   pull_request:
@@ -32,6 +32,10 @@ jobs:
           source: "dist,package.json,*.lock"
           target: "~/app/gobarber-server"
 
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
       - name: Run production scripts on Digital Ocean
         uses: appleboy/ssh-action@master
         with:
