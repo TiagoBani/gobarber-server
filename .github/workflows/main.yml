@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ~/app/gobarber-server 
+            cd ~/app/gobarber-server && |
             yarn build
           
       - name: Run migrations on Digital Ocean
