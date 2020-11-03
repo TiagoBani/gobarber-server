@@ -43,7 +43,7 @@ jobs:
           key: ${{ secrets.SSH_KEY }}
           port: ${{ secrets.SSH_PORT }}
           script: |
-            cd ~/app/gobarber-server && |
+            cd ~/app/gobarber-server 
             yarn build
           
       - name: Run migrations on Digital Ocean
@@ -55,7 +55,7 @@ jobs:
           port: ${{ secrets.SSH_PORT }}
           script: |
             cd ~/app/gobarber-server 
-            ./node_modules/.bin/typeorm migration:run
+            node_modules/.bin/typeorm migration:run
             
       - name: Run api on Digital Ocean
         uses: appleboy/ssh-action@master
