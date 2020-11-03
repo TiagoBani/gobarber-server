@@ -1,11 +1,11 @@
-name: CI/CD
+name: Deploy
 
 on:
   pull_request:
     branches: [ master ]
 
 jobs:
-  build:
+  CI:
     runs-on: ubuntu-latest
 
     steps:
@@ -32,7 +32,7 @@ jobs:
           source: "dist,package.json,*.lock"
           target: "~/app/gobarber-server"
 
-  deploy:
+  CD:
     runs-on: ubuntu-latest
 
     steps:
