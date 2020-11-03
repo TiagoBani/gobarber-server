@@ -16,8 +16,8 @@ jobs:
         with:
           node-version: 14.x 
       
-      - name: Setup Yarn cache dependencies
-        uses: c-hive/gha-yarn-cache@v1
+#       - name: Setup Yarn cache dependencies
+#         uses: c-hive/gha-yarn-cache@v1
                     
       - name: Install dependencies
         run: yarn
